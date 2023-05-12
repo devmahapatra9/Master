@@ -1,0 +1,86 @@
+Print name to console
+----------------------
+
+*** Settings ***
+Documentation	Robot file to Print your name
+
+*** Test Case ***
+Print My Name
+	Log To Console	Devdeep
+
+Create dictionary and print Values\
+------------------------------------
+*** Settings ***
+Documentation	Create a dictionary and Print Values
+Library Collections
+
+*** Variables *** 
+&{dict}		name=Devdeep	age=23	country=India
+
+*** Test Cases ***
+Print Dictionary Values
+	Log ${dict.name}
+	Log ${dict.age}
+	Log ${dict.age}
+	Log To Console ${dict}
+
+Create dictionary and print Values Using For Loops
+---------------------------------------------------
+*** Settings ***
+Documentation	Create a dictionary and Print Values using for loop
+Library	Collections
+
+*** Variables ***
+&{dict}	name=Devdeep	age=23	country=India
+
+*** Test cases ***
+Print Dictionary Values
+	FOR ${key} ${value}	IN	&{dict}
+		Log To Console	${key}:${value}
+	END
+
+Test Setup, Test Teardown, Suite setup and Suit teardown
+---------------------------------------------------------
+*** Settings ***
+Documentation Example for test and suite tearup and teardown
+Suite Setup	Log To Console	Suite Setup
+Suite Setup	Log To Console	Suite Teardown
+Test Setup	Log To Console	Test Setup
+Test Setup	Log To Console	Test Teardown
+
+*** Test Cases ***
+Example
+	Sample Keyword
+
+*** keywords ***
+Sample Keyword
+	Log	Sample Keyword
+
+Sample Test Setup
+	Log 	Sample Test Setup
+
+Sample Test Teardown
+	Log	Sample Test Teardown 
+
+
+Multiple test cases but you have to execute only 1
+---------------------------------------------------
+*** Settings ***
+Documentation	Robot file to Print your name
+
+*** Test Case ***
+Print My Name
+	Log To Console	Devdeep
+
+Print My Age
+	Log To Console	23
+
+Print My Country
+	Log To Console	India
+
+to execute any 1 test case - robot -t"Test Case Name"<file name>.robot
+	
+
+
+
+
